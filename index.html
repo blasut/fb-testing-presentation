@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+		<title>Testning</title>
 
 		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/black.css">
@@ -24,27 +24,233 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
-			</div>
-		</div>
+				<section>Testning</section>
+				<section>
+					<pre>
+            <code class="javascript" data-trim contenteditable style="font-size: 18px;">
+Reveal.addEventListener( 'customevent', function() {
+	console.log( '"customevent" has fired' );
+} );
+					  </code>
+          </pre>
+        </section>
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.js"></script>
+				<section>
+          <h2>Varför?</h2>
+          <ul>
+            <li class="fragment">Verifiera funktionalitet</li>
+            <li class="fragment">Reproducera buggar</li>
+            <li class="fragment">Minimera riskerna med att ändra programmet</li>
+            <li class="fragment">Dokumentera funktionalitet</li>
+          </ul>
+        </section>
 
-		<script>
-			// More info https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				history: true,
+				<section>
+          <h2>Vad?</h2>
+          <ul class="fragment">
+            <li>Unit test</li>
+            <li>Regression test</li>
+            <li>Integration test</li>
+            <li>System test</li>
+            <li>Property baserad testning</li>
+          </ul>
+        </section>
 
-				// More info https://github.com/hakimel/reveal.js#dependencies
-				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-				]
-			});
-		</script>
-	</body>
+				<section>
+          <h2>Unit</h2>
+          <ul>
+            <li class="fragment">En isolerad komponent i systemet</li>
+            <li class="fragment">Testar specifik funktionalitet</li>
+            <li class="fragment">Vanligt att dessa inte ändrar state, som i en databas eller DOMen</li>
+          </ul>
+          <pre class="fragment">
+            <code class="javascript" data-trim contenteditable style="font-size: 18px;">
+Kodexempel
+            </code>
+          </pre>
+        </section>
+
+        <section>
+          <h2>Integration</h2>
+          <ul>
+            <li class="fragment">Tester flera komponenters <i>integration</i> med varandra</li>
+            <li class="fragment">Testar funktionalitet, över flera komponenter</li>
+            <li class="fragment">Vanligare att dessa kan ändra state, som i en databas eller DOMen</li>
+          </ul>
+          <pre class="fragment">
+            <code class="javascript" data-trim contenteditable style="font-size: 18px;">
+Kodexempel
+            </code>
+          </pre>
+        </section>
+
+        <section>
+          <h2>System</h2>
+          <small>AKA "end to end" tester</small>
+          <small>AKA "acceptance" tester</small>
+          <ul>
+            <li class="fragment">Testar hela systemet, kan t.ex. vara "en användare kan köpa en produkt"</li>
+            <li class="fragment">Kan också vara att testa performace eller usability</li>
+          </ul>
+          <pre class="fragment">
+            <code class="javascript" data-trim contenteditable style="font-size: 18px;">
+Kodexempel
+            </code>
+          </pre>
+        </section>
+
+        <section>
+          <h2>Regression suite</h2>
+          <ul>
+            <li class="fragment">Ett generiskt begrepp för tester som körs efter programmet har ändrats, t.ex. i en CI miljö</li>
+            <li class="fragment">Unit tester är vanliga regresstiontester</li>
+            <li class="fragment">Kör igenom alla tester</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Property baserad testning</h2>
+          <ul>
+            <li class="fragment">Istället för, eller tillsammans med, ett unit eller integration test</li>
+            <li class="fragment">Beskriver en modell för hur "systemet" eller "enheten" ska fungera</li>
+            <li class="fragment">Genererar tester baserat på modellen som är specifierad</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>TDD</h2>
+          <ul>
+            <li class="fragment">Red, Green, Refactor</li>
+            <li class="fragment">Test först, för all kod</li>
+            <li class="fragment">Driva funktionalitet neråt</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>BDD</h2>
+          <ul>
+            <li class="fragment">Red, Green, Refactor</li>
+            <li class="fragment">Test först, för all kod</li>
+            <li class="fragment">"User-stories"</li>
+            <li class="fragment">Kunden ska vara mycket mer delaktig, passar bra med agilt</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Hur gör jag?</h2>
+          <ul>
+            <li class="fragment">Ibland måste jag förstå vad jag egentligen vill</li>
+            <li class="fragment">Slänga otestad kod, och skriv tester först</li>
+            <li class="fragment">Jobba med integrationstester som en "blackbox"</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Exempel: Ett system för att dela siffror, divide.io</h2>
+          <ul>
+            <li class="fragment">Går att dela två siffror</li>
+            <li class="fragment">Visar felmeddelande när det inte är siffror</li>
+          </ul>
+        </section>
+
+        <section>
+          <section>
+            <h2>Unit test för att multiplicera</h2>
+            <pre class="fragment">
+              <code class="javascript" data-trim style="font-size: 18px;">
+function testThatItReturnTheQuotientOfTheDividendAndTheDevisor() {
+  console.log("Running unit tests");
+  if(devide(10, 2) !== 5) {
+    throw "Devide Error";
+  }
+
+  return "Yeah";
+}
+              </code>
+            </pre>
+            <pre class="fragment">
+              <code class="javascript" data-trim style="font-size: 18px;">
+function devide(dividend, devisor) {
+  return dividend / devisor;
+}
+              </code>
+            </pre>
+          </section>
+
+          <section>
+            <h2>Unit test för att multiplicera, edge-cases?</h2>
+            <ul>
+              <li class="fragment">Vad händer om vi har negativa tal?</li>
+              <li class="fragment">Vad händer om vi delar med noll?</li>
+              <li class="fragment">Vad händer om vi delar med en sträng?</li>
+              <li class="fragment">Vad händer om vi delar med en float?</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>Negativa tal</h2>
+          </section>
+
+          <section>
+            <h2>Dela med noll</h2>
+          </section>
+
+          <section>
+            <h2>Dela med sträng</h2>
+          </section>
+
+          <section>
+            <h2>Dela med float</h2>
+          </section>
+
+        </section>
+
+        <section>
+          <h2>Integration test för att verifiera att domen ändras</h2>
+          <pre class="fragment">
+            <code class="javascript" data-trim style="font-size: 18px;">
+function testThatWeCanSeeTheQuotient() {
+  console.log("Running unit tests");
+
+  return "Yeah";
+}
+            </code>
+          </pre>
+          <pre class="fragment">
+            <code class="javascript" data-trim style="font-size: 18px;">
+function devide(dividend, devisor) {
+  return dividend / devisor;
+}
+            </code>
+          </pre>
+        </section>
+
+        <section>
+          <h2>"Systemtest"</h2>
+          <p>Redan klart.</p>
+        </section>
+
+      </div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+     // More info https://github.com/hakimel/reveal.js#configuration
+     Reveal.initialize({
+       history: true,
+
+       slideNumber: true,
+
+       // More info https://github.com/hakimel/reveal.js#dependencies
+       dependencies: [
+         { src: 'plugin/markdown/marked.js' },
+         { src: 'plugin/markdown/markdown.js' },
+         { src: 'plugin/notes/notes.js', async: true },
+         { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+       ]
+     });
+    </script>
+  </body>
 </html>
