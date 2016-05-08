@@ -230,6 +230,36 @@ function devide(dividend, devisor) {
           <p>Redan klart.</p>
         </section>
 
+        <section>
+          <section>
+            <h2>Property baserade tester</h2>
+            <ul>
+              <li class="fragment">Vad är det vi beskriver?</li>
+              <li class="fragment">Systemet ska kunna dela siffror, och ge förväntat resultat</li>
+              <li class="fragment">Finns det någon algebraeisk lag som gäller?</li>
+              <li class="fragment">a = b x c</li>
+              <li class="fragment">a / b = c</li>
+              <li class="fragment">Kan vi skriva detta generiskt i kod?</li>
+            </ul>
+          </section>
+
+          <section>
+            <pre class="fragment">
+              <code class="javascript" data-trim style="font-size: 18px;">
+var jsc = require("jsverify");
+
+var divideprop =
+  jsc.forall("number -> number", "number", function (a, b) {
+    return divide(a,b) === (b * divide(a,b));
+  });
+
+jsc.assert(divideprop);
+
+              </code>
+            </pre>
+          </section>
+        </section>
+
       </div>
     </div>
 
