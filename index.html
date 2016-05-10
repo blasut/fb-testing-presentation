@@ -339,79 +339,131 @@ function multiply(multiplier, multiplicand) {
             <h2>Unit test för att multiplicera, edge-cases?</h2>
             <ul>
               <li class="fragment">Vad händer om vi har negativa tal?</li>
-              <li class="fragment">Vad händer om vi delar med noll?</li>
-              <li class="fragment">Vad händer om vi delar med en sträng?</li>
-              <li class="fragment">Vad händer om vi delar med en float?</li>
+              <li class="fragment">Vad händer om vi multiplicerar med noll?</li>
+              <li class="fragment">Vad händer om vi multiplicerar med en sträng?</li>
+              <li class="fragment">Vad händer om vi multiplicerar med en float?</li>
             </ul>
           </section>
 
           <section>
             <h2>Negativa tal</h2>
             <pre class="fragment">
-              <code class="javascript" data-trim style="font-size: 18px;">
-function testThatItReturnTheQuotientOfTheDividendAndTheDevisor() {
-}
-              </code>
-            </pre>
-            <pre class="fragment">
-              <code class="javascript" data-trim style="font-size: 18px;">
-function devide(dividend, devisor) {
-  return dividend / devisor;
-}
-              </code>
-            </pre>
-          </section>
-
-          <section>
-            <h2>Dela med noll</h2>
-            <pre class="fragment">
-              <code class="javascript" data-trim style="font-size: 18px;">
-function testThatItReturnTheQuotientOfTheDividendAndTheDevisor() {
-}
-              </code>
-            </pre>
-            <pre class="fragment">
-              <code class="javascript" data-trim style="font-size: 18px;">
-function devide(dividend, devisor) {
-  if(devisor === 0) {
-    return 0;
-  }
-  return dividend / devisor;
-}
-              </code>
-            </pre>
-          </section>
-
-          <section>
-            <h2>Dela med sträng</h2>
-            <pre class="fragment">
-              <code class="javascript" data-trim style="font-size: 18px;">
-function testThatItReturnTheQuotientOfTheDividendAndTheDevisor() {
+              <code class="javascript" style="font-size: 18px;">
+function testThatItReturnsTheProduct() {
   console.log("Running unit tests");
+  if(multiply(10, 2) !== 20) {
+    throw "Multiply Error";
+  }
+  if(multiply(10, -2) !== -20) {
+    throw "Multiply with negative number error";
+  }
   return "Passed tests";
 }
               </code>
             </pre>
             <pre class="fragment">
               <code class="javascript" data-trim style="font-size: 18px;">
-function devide(dividend, devisor) {
+function multiply(multiplier, multiplicand) {
+  return multiplier * multiplicand;
 }
               </code>
             </pre>
           </section>
 
           <section>
-            <h2>Dela med float</h2>
+            <h2>Multiplicera med noll</h2>
             <pre class="fragment">
               <code class="javascript" style="font-size: 18px;">
-function testThatItReturnTheQuotientOfTheDividendAndTheDevisor() {
+function testThatItReturnsTheProduct() {
+  console.log("Running unit tests");
+  if(multiply(10, 2) !== 20) {
+    throw "Multiply Error";
+  }
+  if(multiply(10, -2) !== -20) {
+    throw "Multiply with negative number error";
+  }
+  if(multiply(10, 0) !== 0) {
+    throw "Multiply with zero error";
+  }
+  return "Passed tests";
 }
               </code>
             </pre>
             <pre class="fragment">
               <code class="javascript" data-trim style="font-size: 18px;">
-function devide(dividend, devisor) {
-  return dividend / devisor;
+function multiply(multiplier, multiplicand) {
+  return multiplier * multiplicand;
+}
+              </code>
+            </pre>
+          </section>
+
+          <section>
+            <h2>Multiplicera med sträng</h2>
+            <pre class="fragment">
+              <code class="javascript" style="font-size: 18px;">
+function testThatItReturnsTheProduct() {
+  console.log("Running unit tests");
+  if(multiply(10, 2) !== 20) {
+    throw "Multiply Error";
+  }
+  if(multiply(10, -2) !== -20) {
+    throw "Multiply with negative number error";
+  }
+  if(multiply(10, 0) !== 0) {
+    throw "Multiply with zero error";
+  }
+  if(multiply("10", 2) !== 20) {
+    throw "Multiply with string error";
+  }
+  if(multiply("10", "2") !== 20) {
+    throw "Multiply with string error";
+  }
+  return "Passed tests";
+}
+              </code>
+            </pre>
+            <pre class="fragment">
+              <code class="javascript" data-trim style="font-size: 18px;">
+function multiply(multiplier, multiplicand) {
+  return multiplier * multiplicand;
+}
+              </code>
+            </pre>
+          </section>
+
+          <section>
+            <h2>Multiplicera med float</h2>
+            <pre class="fragment">
+              <code class="javascript" style="font-size: 18px;">
+function testThatItReturnsTheProduct() {
+  console.log("Running unit tests");
+  if(multiply(10, 2) !== 20) {
+    throw "Multiply Error";
+  }
+  if(multiply(10, -2) !== -20) {
+    throw "Multiply with negative number error";
+  }
+  if(multiply(10, 0) !== 0) {
+    throw "Multiply with zero error";
+  }
+  if(multiply("10", 2) !== 20) {
+    throw "Multiply with string error";
+  }
+  if(multiply("10", "2") !== 20) {
+    throw "Multiply with string error";
+  }
+  if(multiply(10, 2.225) !== 22.25) {
+    throw "Multiply with float error";
+  }
+  return "Passed tests";
+}
+              </code>
+            </pre>
+            <pre class="fragment">
+              <code class="javascript" data-trim style="font-size: 18px;">
+function multiply(multiplier, multiplicand) {
+  return multiplier * multiplicand;
 }
               </code>
             </pre>
