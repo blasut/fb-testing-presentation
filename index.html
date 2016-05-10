@@ -97,7 +97,7 @@
         <section>
           <h2>TDD</h2>
           <ul>
-            <li class="fragment"><span style="color: red;">Red</span>, <span style="color: green;">Red</span>, Refactor</li>
+            <li class="fragment"><span style="color: red;">Red</span>, <span style="color: green;">Green</span>, Refactor</li>
             <li class="fragment">Test först, för all kod</li>
             <li class="fragment">Driva funktionalitet neråt</li>
           </ul>
@@ -106,7 +106,7 @@
         <section>
           <h2>BDD</h2>
           <ul>
-            <li class="fragment"><span style="color: red;">Red</span>, <span style="color: green;">Red</span>, Refactor</li>
+            <li class="fragment"><span style="color: red;">Red</span>, <span style="color: green;">Green</span>, Refactor</li>
             <li class="fragment">Test först, för all kod</li>
             <li class="fragment">"User-stories"</li>
             <li class="fragment">Kunden ska vara mycket mer delaktig, passar bra med agilt</li>
@@ -591,14 +591,34 @@ function divide(dividend, devisor) {
           </section>
 
           <section>
-            <pre class="fragment">
-              <code class="javascript" data-trim style="font-size: 18px;">
+            <pre class="">
+              <code class="javascript" contenteditable data-trim style="font-size: 18px;">
 var propCheckingIntegers =
 jsc.forall(jsc.integer, jsc.integer, function (a, b) {
   return a === multiply(b, divide(a,b));
 });
 
 jsc.assert(propCheckingIntegers);
+              </code>
+            </pre>
+            <pre>
+              <code class="javascript" contenteditable data-trim style="font-size: 18px;">
+var jsonSampler = jsc.sampler(jsc.json, 5);
+var arrayNat = jsc.array(jsc.string);
+var jsonProp =
+jsc.forall(jsc.array(jsc.string), function (a) {
+  console.log("----");
+  console.log(a);
+  return parse(a);
+});
+var notemptystring = jsc.suchthat(jsc.string, function(s) { return s !== "" });
+var jsonProp =
+jsc.forall(jsc.suchthat(jsc.array(notemptystring), function (a) { return !(Array.isArray(a) && a.length < 2) }), function (a) {
+  console.log("----");
+  console.log(a);
+  return JSON.parse(JSON.stringify(a)); 
+});
+jsc.assert(jsonProp);
               </code>
             </pre>
             <pre class="fragment">
