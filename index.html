@@ -502,26 +502,103 @@ function multiply(multiplier, multiplicand) {
 
         <section>
           <h2>"Systemtest"</h2>
-          <p>Redan klart.</p>
+          <p>Alla testerna!.</p>
+          <pre class="fragment">
+            <code class="javascript" style="font-size: 18px;">
+function testThatDivideWorksWithMultiply() {
+  console.log("Running unit tests");
+  if(devide(multiply(10, 2), 2) !== 10) {
+    throw "Multiply with Devide Error";
+  }
+  return "Passed tests";
+}
+
+function testThatItReturnsTheProduct() {
+  console.log("Running unit tests");
+  if(multiply(10, 2) !== 20) {
+    throw "Multiply Error";
+  }
+  if(multiply(10, -2) !== -20) {
+    throw "Multiply with negative number error";
+  }
+  if(multiply(10, 0) !== 0) {
+    throw "Multiply with zero error";
+  }
+  if(multiply("10", 2) !== 20) {
+    throw "Multiply with string error";
+  }
+  if(multiply("10", "2") !== 20) {
+    throw "Multiply with string error";
+  }
+  if(multiply(10, 2.225) !== 22.25) {
+    throw "Multiply with float error";
+  }
+  return "Passed tests";
+}
+
+function testThatItReturnTheQuotientOfTheDividendAndTheDevisor() {
+  console.log("Running unit tests");
+  if(devide(10, 2) !== 5) {
+    throw "Devide Error";
+  }
+  if(devide(-10, 2) !== -5) {
+    throw "Devide Error";
+  }
+  if(devide(10, 0) !== 0) {
+    throw "Devide Error";
+  }
+  if(devide("10", 2) !== 5) {
+    throw "Devide Error";
+  }
+  if(devide(10, 2.0) !== 5) {
+    throw "Devide Error";
+  }
+}
+
+function systemTest() {
+  testThatItReturnTheQuotientOfTheDividendAndTheDevisor();
+  testThatItReturnsTheProduct();
+  testThatDivideWorksWithMultiply();
+}
+            </code>
+          </pre>
+          <pre class="fragment">
+            <code class="javascript" data-trim style="font-size: 18px;">
+function multiply(multiplier, multiplicand) {
+  return multiplier * multiplicand;
+}
+
+function devide(dividend, devisor) {
+  if(devisor === 0) {
+    return 0;
+  }
+  return dividend / devisor;
+}
+            </code>
+          </pre>
+
         </section>
 
-        <!--
-             <section>
-             <section>
-             <h2>Property baserade tester</h2>
-             <ul>
-             <li class="fragment">Vad är det vi beskriver?</li>
-             <li class="fragment">Systemet ska kunna dela siffror, och ge förväntat resultat</li>
-             <li class="fragment">Finns det någon algebraeisk lag som gäller?</li>
-             <li class="fragment">a = b x c</li>
-             <li class="fragment">a / b = c</li>
-             <li class="fragment">Kan vi skriva detta generiskt i kod?</li>
-             </ul>
-             </section>
+        <section>
+          <h2>Bonus</h2>
+        </section>
 
-             <section>
-             <pre class="fragment">
-             <code class="javascript" data-trim style="font-size: 18px;">
+        <section>
+          <section>
+            <h2>Property baserade tester</h2>
+            <ul>
+              <li class="fragment">Vad är det vi beskriver?</li>
+              <li class="fragment">Systemet ska kunna dela siffror, och ge förväntat resultat</li>
+              <li class="fragment">Finns det någon algebraeisk lag som gäller?</li>
+              <li class="fragment">a = b x c</li>
+              <li class="fragment">a / b = c</li>
+              <li class="fragment">Kan vi skriva detta generiskt i kod?</li>
+            </ul>
+          </section>
+
+          <section>
+            <pre class="fragment">
+              <code class="javascript" data-trim style="font-size: 18px;">
              var jsc = require("jsverify");
 
              var divideprop =
@@ -531,11 +608,10 @@ function multiply(multiplier, multiplicand) {
 
              jsc.assert(divideprop);
 
-             </code>
-             </pre>
-             </section>
-             </section>
-           -->
+              </code>
+            </pre>
+          </section>
+        </section>
 
       </div>
     </div>
