@@ -48,11 +48,11 @@ Reveal.addEventListener( 'customevent', function() {
 				<section>
           <h2>Vad?</h2>
           <ul class="fragment">
-            <li>Unit test</li>
-            <li>Regression test</li>
-            <li>Integration test</li>
-            <li>System test</li>
-            <li>Property baserad testning</li>
+            <li class="fragment">Unit test</li>
+            <li class="fragment">Regression test</li>
+            <li class="fragment">Integration test</li>
+            <li class="fragment">System test</li>
+            <li class="fragment">Property baserad test</li>
           </ul>
         </section>
 
@@ -63,11 +63,6 @@ Reveal.addEventListener( 'customevent', function() {
             <li class="fragment">Testar specifik funktionalitet</li>
             <li class="fragment">Vanligt att dessa inte ändrar state, som i en databas eller DOMen</li>
           </ul>
-          <pre class="fragment">
-            <code class="javascript" data-trim contenteditable style="font-size: 18px;">
-Kodexempel
-            </code>
-          </pre>
         </section>
 
         <section>
@@ -77,11 +72,6 @@ Kodexempel
             <li class="fragment">Testar funktionalitet, över flera komponenter</li>
             <li class="fragment">Vanligare att dessa kan ändra state, som i en databas eller DOMen</li>
           </ul>
-          <pre class="fragment">
-            <code class="javascript" data-trim contenteditable style="font-size: 18px;">
-Kodexempel
-            </code>
-          </pre>
         </section>
 
         <section>
@@ -92,11 +82,6 @@ Kodexempel
             <li class="fragment">Testar hela systemet, kan t.ex. vara "en användare kan köpa en produkt"</li>
             <li class="fragment">Kan också vara att testa performace eller usability</li>
           </ul>
-          <pre class="fragment">
-            <code class="javascript" data-trim contenteditable style="font-size: 18px;">
-Kodexempel
-            </code>
-          </pre>
         </section>
 
         <section>
@@ -164,7 +149,7 @@ function testThatItReturnTheQuotientOfTheDividendAndTheDevisor() {
     throw "Devide Error";
   }
 
-  return "Yeah";
+  return "Passed tests";
 }
               </code>
             </pre>
@@ -189,18 +174,133 @@ function devide(dividend, devisor) {
 
           <section>
             <h2>Negativa tal</h2>
+            <pre class="fragment">
+              <code class="javascript" data-trim style="font-size: 18px;">
+function testThatItReturnTheQuotientOfTheDividendAndTheDevisor() {
+  console.log("Running unit tests");
+  if(devide(10, 2) !== 5) {
+    throw "Devide Error";
+  }
+  if(devide(-10, 2) !== -5) {
+    throw "Devide Error";
+  }
+
+  return "Passed tests";
+}
+              </code>
+            </pre>
+            <pre class="fragment">
+              <code class="javascript" data-trim style="font-size: 18px;">
+function devide(dividend, devisor) {
+  return dividend / devisor;
+}
+              </code>
+            </pre>
           </section>
 
           <section>
             <h2>Dela med noll</h2>
+            <pre class="fragment">
+              <code class="javascript" data-trim style="font-size: 18px;">
+function testThatItReturnTheQuotientOfTheDividendAndTheDevisor() {
+  console.log("Running unit tests");
+  if(devide(10, 2) !== 5) {
+    throw "Devide Error";
+  }
+  if(devide(-10, 2) !== -5) {
+    throw "Devide Error";
+  }
+  if(devide(10, 0) !== 0) {
+    throw "Devide Error";
+  }
+
+  return "Passed tests";
+}
+              </code>
+            </pre>
+            <pre class="fragment">
+              <code class="javascript" data-trim style="font-size: 18px;">
+function devide(dividend, devisor) {
+  if(devisor === 0) {
+    return 0;
+  }
+  return dividend / devisor;
+}
+              </code>
+            </pre>
           </section>
 
           <section>
             <h2>Dela med sträng</h2>
+            <pre class="fragment">
+              <code class="javascript" data-trim style="font-size: 18px;">
+function testThatItReturnTheQuotientOfTheDividendAndTheDevisor() {
+  console.log("Running unit tests");
+  if(devide(10, 2) !== 5) {
+    throw "Devide Error";
+  }
+  if(devide(-10, 2) !== -5) {
+    throw "Devide Error";
+  }
+  if(devide(10, 0) !== 0) {
+    throw "Devide Error";
+  }
+  if(devide("10", 2) !== 5) {
+    throw "Devide Error";
+  }
+
+  return "Passed tests";
+}
+              </code>
+            </pre>
+            <pre class="fragment">
+              <code class="javascript" data-trim style="font-size: 18px;">
+function devide(dividend, devisor) {
+  if(devisor === 0) {
+    return 0;
+  }
+  return dividend / devisor;
+}
+              </code>
+            </pre>
           </section>
 
           <section>
             <h2>Dela med float</h2>
+            <pre class="fragment">
+              <code class="javascript" style="font-size: 18px;">
+function testThatItReturnTheQuotientOfTheDividendAndTheDevisor() {
+  console.log("Running unit tests");
+  if(devide(10, 2) !== 5) {
+    throw "Devide Error";
+  }
+  if(devide(-10, 2) !== -5) {
+    throw "Devide Error";
+  }
+  if(devide(10, 0) !== 0) {
+    throw "Devide Error";
+  }
+  if(devide("10", 2) !== 5) {
+    throw "Devide Error";
+  }
+  if(devide(10, 2.0) !== 5) {
+    throw "Devide Error";
+  }
+
+  return "Passed tests";
+}
+              </code>
+            </pre>
+            <pre class="fragment">
+              <code class="javascript" data-trim style="font-size: 18px;">
+function devide(dividend, devisor) {
+  if(devisor === 0) {
+    return 0;
+  }
+  return dividend / devisor;
+}
+              </code>
+            </pre>
           </section>
 
         </section>
@@ -212,7 +312,7 @@ function devide(dividend, devisor) {
 function testThatWeCanSeeTheQuotient() {
   console.log("Running unit tests");
 
-  return "Yeah";
+  return "Passed tests";
 }
             </code>
           </pre>
