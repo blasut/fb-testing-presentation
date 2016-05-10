@@ -628,13 +628,12 @@ jsc.assert(propCheckingNaturalNumbers);
             </pre>
             <pre class="fragment">
               <code class="javascript" data-trim style="font-size: 18px;">
-var propCheckingStrings =
+var propCheckingRightSize =
 jsc.forall(jsc.integer(1,10000000000), jsc.integer(1,1000000000), function (a, b) {
-  return a === multiply("b", divide("a","b"));
+  return divide(a,b) < a && divide(a,b) < b;
 });
 
-jsc.assert(propCheckingStrings);
-
+jsc.assert(propCheckingRightSize);
               </code>
             </pre>
           </section>
