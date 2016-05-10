@@ -145,6 +145,7 @@ function testThatItReturnTheQuotientOfTheDividendAndTheDevisor() {
 }
               </code>
             </pre>
+
             <pre class="fragment">
               <code class="javascript" data-trim style="font-size: 18px;">
 function divide(dividend, devisor) {
@@ -579,7 +580,8 @@ function divide(dividend, devisor) {
             <h2>Property baserade tester</h2>
             <ul>
               <li class="fragment">Vad är det vi beskriver?</li>
-              <li class="fragment">Systemet ska kunna dela siffror, och ge förväntat resultat</li>
+              <li class="fragment">Systemet ska kunna dividera, och ge förväntat resultat</li>
+              <li class="fragment">Systemet ska kunna multiplicera, och ge förväntat resultat</li>
               <li class="fragment">Finns det någon algebraeisk lag som gäller?</li>
               <li class="fragment">a = b x c</li>
               <li class="fragment">a / b = c</li>
@@ -591,24 +593,23 @@ function divide(dividend, devisor) {
           <section>
             <pre class="fragment">
               <code class="javascript" data-trim style="font-size: 18px;">
-var propCheckingNaturalNumbers =
+var propCheckingIntegers =
 jsc.forall(jsc.integer, jsc.integer, function (a, b) {
   return a === multiply(b, divide(a,b));
 });
 
-jsc.assert(propCheckingNaturalNumbers);
+jsc.assert(propCheckingIntegers);
               </code>
             </pre>
             <pre class="fragment">
               <code class="javascript" data-trim style="font-size: 18px;">
-var propCheckingNaturalNumbers =
+var propCheckingIntegers =
 jsc.forall(jsc.integer(1,10000000000), jsc.integer(1,1000000000), function (a, b) {
   return a === multiply(b, divide(a,b));
 });
 
-jsc.assert(propCheckingNaturalNumbers);
+jsc.assert(propCheckingIntegers);
               </code>
-            </pre>
             </pre>
             <pre class="fragment">
               <code class="javascript" data-trim style="font-size: 18px;">
