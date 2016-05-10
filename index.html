@@ -20,6 +20,7 @@
      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
      document.getElementsByTagName( 'head' )[0].appendChild( link );
     </script>
+    <script src="js/jsverify.standalone.js"></script>
   </head>
   <body>
     <div class="reveal">
@@ -145,7 +146,7 @@ Reveal.addEventListener( 'customevent', function() {
               <code class="javascript" data-trim style="font-size: 18px;">
 function testThatItReturnTheQuotientOfTheDividendAndTheDevisor() {
   console.log("Running unit tests");
-  if(devide(10, 2) !== 5) {
+  if(divide(10, 2) !== 5) {
     throw "Devide Error";
   }
 
@@ -155,7 +156,7 @@ function testThatItReturnTheQuotientOfTheDividendAndTheDevisor() {
             </pre>
             <pre class="fragment">
               <code class="javascript" data-trim style="font-size: 18px;">
-function devide(dividend, devisor) {
+function divide(dividend, devisor) {
   return dividend / devisor;
 }
               </code>
@@ -178,10 +179,10 @@ function devide(dividend, devisor) {
               <code class="javascript" data-trim style="font-size: 18px;">
 function testThatItReturnTheQuotientOfTheDividendAndTheDevisor() {
   console.log("Running unit tests");
-  if(devide(10, 2) !== 5) {
+  if(divide(10, 2) !== 5) {
     throw "Devide Error";
   }
-  if(devide(-10, 2) !== -5) {
+  if(divide(-10, 2) !== -5) {
     throw "Devide Error";
   }
 
@@ -191,7 +192,7 @@ function testThatItReturnTheQuotientOfTheDividendAndTheDevisor() {
             </pre>
             <pre class="fragment">
               <code class="javascript" data-trim style="font-size: 18px;">
-function devide(dividend, devisor) {
+function divide(dividend, devisor) {
   return dividend / devisor;
 }
               </code>
@@ -204,13 +205,13 @@ function devide(dividend, devisor) {
               <code class="javascript" data-trim style="font-size: 18px;">
 function testThatItReturnTheQuotientOfTheDividendAndTheDevisor() {
   console.log("Running unit tests");
-  if(devide(10, 2) !== 5) {
+  if(divide(10, 2) !== 5) {
     throw "Devide Error";
   }
-  if(devide(-10, 2) !== -5) {
+  if(divide(-10, 2) !== -5) {
     throw "Devide Error";
   }
-  if(devide(10, 0) !== 0) {
+  if(divide(10, 0) !== 0) {
     throw "Devide Error";
   }
 
@@ -220,7 +221,7 @@ function testThatItReturnTheQuotientOfTheDividendAndTheDevisor() {
             </pre>
             <pre class="fragment">
               <code class="javascript" data-trim style="font-size: 18px;">
-function devide(dividend, devisor) {
+function divide(dividend, devisor) {
   if(devisor === 0) {
     return 0;
   }
@@ -236,16 +237,16 @@ function devide(dividend, devisor) {
               <code class="javascript" data-trim style="font-size: 18px;">
 function testThatItReturnTheQuotientOfTheDividendAndTheDevisor() {
   console.log("Running unit tests");
-  if(devide(10, 2) !== 5) {
+  if(divide(10, 2) !== 5) {
     throw "Devide Error";
   }
-  if(devide(-10, 2) !== -5) {
+  if(divide(-10, 2) !== -5) {
     throw "Devide Error";
   }
-  if(devide(10, 0) !== 0) {
+  if(divide(10, 0) !== 0) {
     throw "Devide Error";
   }
-  if(devide("10", 2) !== 5) {
+  if(divide("10", 2) !== 5) {
     throw "Devide Error";
   }
 
@@ -255,7 +256,7 @@ function testThatItReturnTheQuotientOfTheDividendAndTheDevisor() {
             </pre>
             <pre class="fragment">
               <code class="javascript" data-trim style="font-size: 18px;">
-function devide(dividend, devisor) {
+function divide(dividend, devisor) {
   if(devisor === 0) {
     return 0;
   }
@@ -271,19 +272,19 @@ function devide(dividend, devisor) {
               <code class="javascript" style="font-size: 18px;">
 function testThatItReturnTheQuotientOfTheDividendAndTheDevisor() {
   console.log("Running unit tests");
-  if(devide(10, 2) !== 5) {
+  if(divide(10, 2) !== 5) {
     throw "Devide Error";
   }
-  if(devide(-10, 2) !== -5) {
+  if(divide(-10, 2) !== -5) {
     throw "Devide Error";
   }
-  if(devide(10, 0) !== 0) {
+  if(divide(10, 0) !== 0) {
     throw "Devide Error";
   }
-  if(devide("10", 2) !== 5) {
+  if(divide("10", 2) !== 5) {
     throw "Devide Error";
   }
-  if(devide(10, 2.0) !== 5) {
+  if(divide(10, 2.0) !== 5) {
     throw "Devide Error";
   }
 
@@ -293,7 +294,7 @@ function testThatItReturnTheQuotientOfTheDividendAndTheDevisor() {
             </pre>
             <pre class="fragment">
               <code class="javascript" data-trim style="font-size: 18px;">
-function devide(dividend, devisor) {
+function divide(dividend, devisor) {
   if(devisor === 0) {
     return 0;
   }
@@ -482,7 +483,7 @@ function multiply(multiplier, multiplicand) {
               <code class="javascript" style="font-size: 18px;">
 function testThatDivideWorksWithMultiply() {
   console.log("Running unit tests");
-  if(devide(multiply(10, 2), 2) !== 10) {
+  if(divide(multiply(10, 2), 2) !== 10) {
     throw "Multiply with Devide Error";
   }
   return "Passed tests";
@@ -501,13 +502,14 @@ function multiply(multiplier, multiplicand) {
         </section>
 
         <section>
-          <h2>"Systemtest"</h2>
-          <p>Alla testerna!.</p>
-          <pre class="fragment">
-            <code class="javascript" style="font-size: 18px;">
+          <section>
+            <h2>"Systemtest"</h2>
+            <p>Alla testerna!</p>
+            <pre class="fragment">
+              <code class="javascript" style="font-size: 18px;">
 function testThatDivideWorksWithMultiply() {
   console.log("Running unit tests");
-  if(devide(multiply(10, 2), 2) !== 10) {
+  if(divide(multiply(10, 2), 2) !== 10) {
     throw "Multiply with Devide Error";
   }
   return "Passed tests";
@@ -538,19 +540,19 @@ function testThatItReturnsTheProduct() {
 
 function testThatItReturnTheQuotientOfTheDividendAndTheDevisor() {
   console.log("Running unit tests");
-  if(devide(10, 2) !== 5) {
+  if(divide(10, 2) !== 5) {
     throw "Devide Error";
   }
-  if(devide(-10, 2) !== -5) {
+  if(divide(-10, 2) !== -5) {
     throw "Devide Error";
   }
-  if(devide(10, 0) !== 0) {
+  if(divide(10, 0) !== 0) {
     throw "Devide Error";
   }
-  if(devide("10", 2) !== 5) {
+  if(divide("10", 2) !== 5) {
     throw "Devide Error";
   }
-  if(devide(10, 2.0) !== 5) {
+  if(divide(10, 2.0) !== 5) {
     throw "Devide Error";
   }
 }
@@ -560,22 +562,27 @@ function systemTest() {
   testThatItReturnsTheProduct();
   testThatDivideWorksWithMultiply();
 }
-            </code>
-          </pre>
-          <pre class="fragment">
-            <code class="javascript" data-trim style="font-size: 18px;">
+              </code>
+            </pre>
+          </section>
+          <section>
+            <h2>"Systemtest"</h2>
+            <p>Hela koden!</p>
+            <pre class="fragment">
+              <code class="javascript" data-trim style="font-size: 18px;">
 function multiply(multiplier, multiplicand) {
   return multiplier * multiplicand;
 }
 
-function devide(dividend, devisor) {
+function divide(dividend, devisor) {
   if(devisor === 0) {
     return 0;
   }
   return dividend / devisor;
 }
-            </code>
-          </pre>
+              </code>
+            </pre>
+          </section>
 
         </section>
 
@@ -592,6 +599,7 @@ function devide(dividend, devisor) {
               <li class="fragment">Finns det någon algebraeisk lag som gäller?</li>
               <li class="fragment">a = b x c</li>
               <li class="fragment">a / b = c</li>
+              <li class="fragment">När b !== 0</li>
               <li class="fragment">Kan vi skriva detta generiskt i kod?</li>
             </ul>
           </section>
@@ -599,14 +607,33 @@ function devide(dividend, devisor) {
           <section>
             <pre class="fragment">
               <code class="javascript" data-trim style="font-size: 18px;">
-             var jsc = require("jsverify");
+var propCheckingNaturalNumbers =
+jsc.forall(jsc.integer, jsc.integer, function (a, b) {
+  return a === multiply(b, divide(a,b));
+});
 
-             var divideprop =
-             jsc.forall("number -> number", "number", function (a, b) {
-             return divide(a,b) === (b * divide(a,b));
-             });
+jsc.assert(propCheckingNaturalNumbers);
+              </code>
+            </pre>
+            <pre class="fragment">
+              <code class="javascript" data-trim style="font-size: 18px;">
+var propCheckingNaturalNumbers =
+jsc.forall(jsc.integer(1,10000000000), jsc.integer(1,1000000000), function (a, b) {
+  return a === multiply(b, divide(a,b));
+});
 
-             jsc.assert(divideprop);
+jsc.assert(propCheckingNaturalNumbers);
+              </code>
+            </pre>
+            </pre>
+            <pre class="fragment">
+              <code class="javascript" data-trim style="font-size: 18px;">
+var propCheckingStrings =
+jsc.forall(jsc.integer(1,10000000000), jsc.integer(1,1000000000), function (a, b) {
+  return a === multiply("b", divide("a","b"));
+});
+
+jsc.assert(propCheckingStrings);
 
               </code>
             </pre>
