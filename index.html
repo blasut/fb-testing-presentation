@@ -472,7 +472,32 @@ function multiply(multiplier, multiplicand) {
         </section>
 
         <section>
-        <h2>Integration test för att verifiera att domen ändras</h2>
+          <section>
+            <h2>Integration test för att verifiera att vi kan både multiplicera och dividera</h2>
+          </section>
+
+          <section>
+            <h2>Multiplicera med float</h2>
+            <pre class="fragment">
+              <code class="javascript" style="font-size: 18px;">
+function testThatDivideWorksWithMultiply() {
+  console.log("Running unit tests");
+  if(devide(multiply(10, 2), 2) !== 10) {
+    throw "Multiply with Devide Error";
+  }
+  return "Passed tests";
+}
+              </code>
+            </pre>
+            <pre class="fragment">
+              <code class="javascript" data-trim style="font-size: 18px;">
+function multiply(multiplier, multiplicand) {
+  return multiplier * multiplicand;
+}
+              </code>
+            </pre>
+          </section>
+
         </section>
 
         <section>
